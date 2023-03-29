@@ -27,7 +27,7 @@ A simple monitoring API written in PHP called using Axios JS
 Install Apache/Nginx and PHP on your machine, then depending on your OS, go to /srv/http OR /var/www/html
 
 ```bash
-git clone https://github.com/NullBrunk/PHPMorpion
+git clone https://github.com/AnasDB/PHPMorpion
 cd PHPMorpion
 mv * ..
 cd .. && rm -r PHPMorpion

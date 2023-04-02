@@ -5,9 +5,9 @@ A simple monitoring API written in PHP called using Axios JS
 
 <br/>
 
-![GitHub top language](https://img.shields.io/github/languages/top/AnasDB/PHPMorpion?style=for-the-badge)
-![GitHub commit activity](https://img.shields.io/github/commit-activity/m/AnasDB/PHPMorpion?style=for-the-badge)
-![repo size](https://img.shields.io/github/repo-size/AnasDB/PHPMorpion?style=for-the-badge)
+![GitHub top language](https://img.shields.io/github/languages/top/NullBrunk/PHPMorpion?style=for-the-badge)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/NullBrunk/PHPMorpion?style=for-the-badge)
+![repo size](https://img.shields.io/github/repo-size/NullBrunk/PHPMorpion?style=for-the-badge)
 
 
 ![image](https://user-images.githubusercontent.com/125673909/225051479-b86e9a33-39cd-4c16-8e5a-ce956c1ea1a3.png)
@@ -27,7 +27,7 @@ A simple monitoring API written in PHP called using Axios JS
 Install Apache/Nginx and PHP on your machine, then depending on your OS, go to /srv/http OR /var/www/html
 
 ```bash
-git clone https://github.com/AnasDB/PHPMorpion
+git clone https://github.com/NullBrunk/PHPMorpion
 cd PHPMorpion
 mv * ..
 cd .. && rm -r PHPMorpion

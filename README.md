@@ -1,7 +1,7 @@
 <div align="center">
 
-# Monitoring
-A simple monitoring API written in PHP called using Axios JS
+# PHP Morpion
+A simple Morpion game playable here : https://brunkmorpion.000webhostapp.com/
 
 <br/>
 

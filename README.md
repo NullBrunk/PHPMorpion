@@ -1,6 +1,6 @@
 <div align="center">
 
-# PHP Morpion
+# PHP Morpion 
 A simple Morpion game playable here : https://brunkmorpion.000webhostapp.com/
 
 <br/>

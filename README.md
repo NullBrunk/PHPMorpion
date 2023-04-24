@@ -3,7 +3,7 @@
 # PHP Morpion  
 A simple Morpion game playable here : https://brunkmorpion.000webhostapp.com/
 
-<br/>
+<br/> 
 
 ![GitHub top language](https://img.shields.io/github/languages/top/NullBrunk/PHPMorpion?style=for-the-badge)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/NullBrunk/PHPMorpion?style=for-the-badge)

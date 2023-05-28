@@ -15,7 +15,6 @@
 </div>
 
 # Game
-
 ![image](https://user-images.githubusercontent.com/125673909/225051873-934c4bef-41d7-4438-8c13-435f2ff98bc7.png)
 
 

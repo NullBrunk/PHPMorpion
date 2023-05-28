@@ -158,13 +158,14 @@ if($_SESSION["playended"] !== true){
   if($button_value > 0 && $button_value <= 9){
 
       # Get the value of the array index using our hashmap
-      $case = $_SESSION['morpion'][$convert[$button_value][0]][$convert[$button_value][1]];
-      
-      
-      # Check if the case is not already filled in
-      if(empty($case)){
+      $x = $convert[$button_value][0];
+      $y = $convert[$button_value][1];
 
-          $case = $_SESSION['current_user'] == 0 ? "O" : "X";
+
+      # Check if the case is not already filled in
+      if(empty($_SESSION['morpion'][$x][$y])){
+
+          $_SESSION['morpion'][$x][$y] = $_SESSION['current_user'] == 0 ? "O" : "X";
           $_SESSION['current_user'] = ( $_SESSION['current_user'] + 1 ) % 2;
           header("Location: game.php");
       }    

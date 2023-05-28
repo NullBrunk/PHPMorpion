@@ -29,7 +29,6 @@ if(isset($_SESSION['u1']) && !empty($_SESSION['u1']) && isset($_SESSION['u2']) &
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
@@ -98,12 +97,15 @@ if(isset($_GET['e'])){
 		<div class="form-group">
 			<input type="text" id="u1" name="u1" class="form-control rounded-left" placeholder="User 1" required>
 		</div>
-	<br>
-		<div class="form-group d-flex">
+	  <br>
+		
+    <div class="form-group d-flex">
 			<input type="text" id="u2" name="u2" class="form-control rounded-left" placeholder="User 2" required>
 		</div>
-	<br>
-		<div class="form-group">
+	
+    <br>
+	
+    <div class="form-group">
 			<button type="submit" class="form-control btn btn-primary rounded submit px-3">Play</button>
 		</div>
 	
@@ -111,7 +113,7 @@ if(isset($_GET['e'])){
 	
 <?php
 
-if(!empty($_POST['u1']) && !empty($_POST['u2']) && isset($_POST['u1']) && isset($_POST['u2']) && $_POST['u1'] == $_POST['u2']){
+if(isset($_POST['u1']) && isset($_POST['u2']) && $_POST['u1'] == $_POST['u2']){
   echo("<script>window.location.href = '?e'</script>");
   die;
 }
@@ -120,22 +122,11 @@ else if (!empty($_POST['u1']) && !empty($_POST['u2']) && isset($_POST['u1']) && 
   $_SESSION['u2'] = htmlspecialchars($_POST['u2']);
   $_SESSION['current_user'] = 0;
   $_SESSION['morpion'] = [ 
-    [
-      "", 
-      "", 
-      ""
-    ], 
-    [
-      "", 
-      "", 
-      ""
-    ], 
-    [
-      "", 
-      "", 
-      ""
-    ] 
+    [ "", "", "" ], 
+    [ "", "", "" ], 
+    [ "", "", "" ],
   ];
+
   header("Location: game.php");
 }
 ?>
@@ -144,8 +135,8 @@ else if (!empty($_POST['u1']) && !empty($_POST['u2']) && isset($_POST['u1']) && 
 	</form>
 
 	</div>
-		</div>
-	</div>
+</div>
+</div>
 </div>
 
     </section><!-- End Contact Section -->

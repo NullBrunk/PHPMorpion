@@ -1,12 +1,9 @@
 <?php
 
-session_start();
-
-
 function horizontal(array $morpion): string
 {
     foreach($morpion as $line){
-        if ( sizeof( array_unique(  $line ) ) == 1 && $line[0] != "" ) {
+        if ( sizeof( array_unique( $line ) ) == 1 && $line[0] != "" ) {
             return $line[0];
         }
     }

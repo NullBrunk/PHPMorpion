@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include_once "core/morpion.php";
+include_once "app/functions.php";
 
 if(!isset($_SESSION['u1']) or empty($_SESSION['u1']) or !isset($_SESSION['u2']) or empty($_SESSION['u2'])){
     header("Location: login.php");
@@ -19,7 +19,7 @@ if(!isset($_SESSION['u1']) or empty($_SESSION['u1']) or !isset($_SESSION['u2']) 
 
   <title>Morpion</title>
   <meta content="" name="description">
-  <meta content="" name="keywords">
+  <meta content="" name="button_valuewords">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,7 +29,6 @@ if(!isset($_SESSION['u1']) or empty($_SESSION['u1']) or !isset($_SESSION['u2']) 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
@@ -137,7 +136,10 @@ if(!isset($_SESSION['u1']) or empty($_SESSION['u1']) or !isset($_SESSION['u2']) 
 
 <?php
 
-$key = array_keys($_POST)[0];
+# Get the "NAME" attribute of the clicked button
+$button_value = array_keys($_POST)[0];
+
+# Hashmap to convert 1 to 9 number to array indexes
 $convert = [
     1 => [0, 0],
     2 => [0, 1],
@@ -152,19 +154,23 @@ $convert = [
 
 
 if($_SESSION["playended"] !== true){
-  if(in_array($key, array_keys($convert))){
 
+  if($button_value > 0 && $button_value <= 9){
 
-      if(empty($_SESSION['morpion'][$convert[$key][0]][$convert[$key][1]])){
+      # Get the value of the array index using our hashmap
+      $case = $_SESSION['morpion'][$convert[$button_value][0]][$convert[$button_value][1]];
+      
+      
+      # Check if the case is not already filled in
+      if(empty($case)){
 
-          $_SESSION['morpion'][$convert[$key][0]][$convert[$key][1]] = $_SESSION['current_user'] == 0 ? "O" : "X";
-
+          $case = $_SESSION['current_user'] == 0 ? "O" : "X";
           $_SESSION['current_user'] = ( $_SESSION['current_user'] + 1 ) % 2;
           header("Location: game.php");
       }    
   }
-}
 
+}
 
 
 

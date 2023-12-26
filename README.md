@@ -14,23 +14,21 @@
 
 </div>
 
-# Game
+# 🎮 Game
 ![image](https://user-images.githubusercontent.com/125673909/225051873-934c4bef-41d7-4438-8c13-435f2ff98bc7.png)
 
 
-# Login page
+# 🔐 Login page
 ![image](https://user-images.githubusercontent.com/125673909/225051778-4866f4d8-2269-479a-b493-8fd9a5431c64.png)
 
 
-# Installation
+# ⚒️ Installation
 
-Install Apache/Nginx and PHP on your machine, then depending on your OS, go to /srv/http OR /var/www/html
+Install an HTTP server and PHP on your machine, then configure your HTTP server so taht he runs PHP.
 
 ```bash
+cd /srv/http || cd /var/www/html
 git clone https://github.com/NullBrunk/PHPMorpion
-cd PHPMorpion
-mv * ..
-cd .. && rm -r PHPMorpion
 ```
 
-Start the HTTPd and the PHPd / PHP-fpm service, and go to 127.0.0.1.
+Start your HTTP server, and go to http://127.0.0.1/PHPMorpion/.

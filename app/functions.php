@@ -1,18 +1,19 @@
 <?php
 
-function horizontal(array $morpion): string
+function horizontal_win(): bool
 {
-    foreach($morpion as $line){
-        if ( sizeof( array_unique( $line ) ) == 1 && $line[0] != "" ) {
-            return $line[0];
+    foreach($_SESSION['morpion'] as $line){
+        if ( sizeof(array_unique($line)) === 1 && $line[0] !== "" ) {
+            $_SESSION["winned"] =  $line[0];
+            return true;
         }
     }
 
-    return "";
+    return false;
 }
 
 
-function vertical(array $morpion): string
+function vertical_win(): bool
 {
     for ($i = 0; $i < 3; $i++){
 
@@ -21,47 +22,49 @@ function vertical(array $morpion): string
 
         for($j = 0; $j < 3; $j++){
 
-            if ($morpion[$j][$i] == "X"){
+            if ($_SESSION['morpion'][$j][$i] == "X"){
                 $x++;
             }
-
-            else if($morpion[$j][$i] == "O"){
+            else if($_SESSION['morpion'][$j][$i] == "O"){
                 $o++;
             }
 
         }
 
         if($x == 3){
-            return "X";
+            $_SESSION["winned"] = "X";
+            return true;
         }
         else if ($o == 3){
-            return "O";
+            $_SESSION["winned"] =  "O";
+            return true;
         }
     }
-        
-    return "";
+    return false;
 }
 
 
-function diagonale(array $morpion): string
+function diagonal_win(): bool
 {
 
     $o = 0;
     $x = 0;
     
     for($i = 0; $i < 3; $i++){
-        if($morpion[$i][$i] == "O"){
+        if($_SESSION['morpion'][$i][$i] == "O"){
             $o++;
         }
-        else if($morpion[$i][$i] == "X"){
+        else if($_SESSION['morpion'][$i][$i] == "X"){
             $x++;
         }
     }
     if($o == 3){
-        return "O";
+        $_SESSION["winned"] = "O";
+        return true;
     }
     else if($x == 3){
-        return "X";
+        $_SESSION["winned"] =  "X";
+        return true;
     }    
     
 
@@ -69,57 +72,45 @@ function diagonale(array $morpion): string
     $x = 0;
 
     for($i = 0; $i < 3; $i++){
-        if ($morpion[$i][2-$i] == "O"){
+        if ($_SESSION['morpion'][$i][2-$i] == "O"){
             $o++;
         }
-        else if($morpion[$i][2-$i] == "X"){
+        else if($_SESSION['morpion'][$i][2-$i] == "X"){
             $x++;
         }
     }
     if($o == 3){
-        return "O";
+        $_SESSION["winned"] =  "O";
+        return true;
     }
     else if($x == 3){
-        return "X";
+        $_SESSION["winned"] =  "X";
+        return true;
     }  
 
 
-    return "";
+    return false;
 }
 
 
-function is_draw(array $morpion): bool 
+function check_draw(): bool 
 {
-    foreach($morpion as $ligne){
-        foreach($ligne as $case){
-            if(empty($case)){
-               return false; 
-            }
-        }
+    foreach($_SESSION['morpion'] as $line){
+        if(in_array("", $line)) {
+            return false;
+        }            
     }
+
+    $_SESSION["winned"] = "null";
     return true;
 }
 
 
 
-function test(array $morpion) 
+function check_win() 
 {
-    $h = horizontal($morpion);
-    $v = vertical($morpion);
-    $d = diagonale($morpion);
-    
-
-    if($h != ""){
-        return $h; 
-    }
-    
-    if($v != ""){
-        return $v;
-    }
-
-    if($d != ""){
-        return $d;
-    }
-    
-    return is_draw($morpion);
+    return horizontal_win() || 
+           vertical_win() || 
+           diagonal_win() || 
+           check_draw();
 }

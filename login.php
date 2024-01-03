@@ -2,12 +2,8 @@
 session_start();
 
 if(isset($_SESSION['u1']) && !empty($_SESSION['u1']) && isset($_SESSION['u2']) && !empty($_SESSION['u2'])){
-  echo("?");
-  header("Location: game.php");
-
+    header("Location: game.php");
 }
-
-
 ?>
 
 <!DOCTYPE html>
@@ -86,7 +82,6 @@ if(isset($_GET['e'])){
       Pleaser enter two different names.
     </div>
   ');
-
 }
 ?>
 
